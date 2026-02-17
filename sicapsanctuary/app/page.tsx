@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-// Make sure these images exist in your public/verses/ folder
+// Ensure these match exactly what is in your public/verses/ folder
 const verseImages = [
   '/verses/verse1.jpg',
   '/verses/verse2.jpg',
@@ -12,11 +12,11 @@ export default function Home() {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    // 1. Pick a random verse immediately
+    // 1. Pick a random verse
     const randomImage = verseImages[Math.floor(Math.random() * verseImages.length)];
     setImage(randomImage);
 
-    // 2. Count the visit automatically
+    // 2. Count the visit
     fetch('/api/increment-access')
       .then((res) => res.json())
       .catch((err) => console.error('Counting error:', err));
@@ -39,10 +39,6 @@ export default function Home() {
       ) : (
         <p className="text-gray-400 animate-pulse">Opening the sanctuary...</p>
       )}
-
-      <p className="mt-8 text-xs text-gray-300 uppercase tracking-widest">
-        Sicap Sanctuary
-      </p>
     </main>
   );
 }
