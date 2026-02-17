@@ -1,4 +1,7 @@
 {
+  
+
+
   "name": "sicapsanctuary",
   "version": "1.0.0",
   "private": true,
@@ -15,6 +18,9 @@
     "react-qr-reader": "latest"
   },
   "devDependencies": {
-    "typescript": "latest"
+    "typescript": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/node": "latest"
   }
 }
