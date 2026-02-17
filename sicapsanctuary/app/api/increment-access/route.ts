@@ -1,7 +1,7 @@
+// app/api/increment-access/route.ts
 import { NextResponse } from 'next/server';
 import { updateDoc, doc, increment, getDoc, setDoc } from 'firebase/firestore';
-// Corrected relative path to reach src/lib from app/api/...
-import { db } from '../../../firebase'; 
+import { db } from '../../../firebase'; // Correct path to root firebase.ts
 
 export async function GET() {
   try {
@@ -9,10 +9,8 @@ export async function GET() {
     const docSnap = await getDoc(statsRef);
     
     if (docSnap.exists()) {
-      // If document exists, increment the 'count' field by 1
       await updateDoc(statsRef, { count: increment(1) });
     } else {
-      // Create the document if it's the first scan
       await setDoc(statsRef, { count: 1 });
     }
     
